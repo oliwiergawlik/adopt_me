@@ -1,10 +1,11 @@
-/* global React ReactDOM */
+import React from "react";
+import * as ReactDOM from "react-dom/client";
 
 const Pet = (props) => {
   return React.createElement("div", {}, [
-    React.createElement("h2", {}, props.name),
-    React.createElement("h3", {}, props.animal),
-    React.createElement("h3", {}, props.breed),
+    React.createElement("h2", { key: 1 }, props.name),
+    React.createElement("h3", { key: 2 }, props.animal),
+    React.createElement("h3", { key: 3 }, props.breed),
   ]);
 };
 
