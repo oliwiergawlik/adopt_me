@@ -1,2 +1,10 @@
 .idea
+
 node_modules
+
+.parcel-cache
+dist
+.env
+converage
+
+.DS_Store
