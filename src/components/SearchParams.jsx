@@ -8,7 +8,7 @@ function SearchParams() {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [""];
+  const breeds = [];
 
   useEffect(() => {
     requestPets().catch(() => {});
@@ -23,9 +23,15 @@ function SearchParams() {
     setPets(data.pets);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    requestPets().catch(() => {});
+  }
+
   return (
     <div className={"search-params"}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="location">Location</label>
         <input
           type="text"
