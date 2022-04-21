@@ -6,6 +6,7 @@
 - SPA - Single Page Application
 - PWA - Progressive Page Application
 - SSA - Server side rendering
+- Memoizing - Cache function result instead call it twice with same parameters, only fore pure function and limited combinations of parameters value
 
 ## Tools
 - Prettier - code formatter => [Link](https://www.npmjs.com/package/prettier) <=

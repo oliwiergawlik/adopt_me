@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import Pet from "./Pet";
+import useBreedList from "../hooks/useBreedList";
+import Results from "./Results";
 
 const animals = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 function SearchParams() {
   const [location, setLocation] = useState("");
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState("dog");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [];
+  const [breeds] = useBreedList(animal);
 
   useEffect(() => {
     requestPets().catch(() => {});
@@ -85,9 +86,7 @@ function SearchParams() {
         <button type={"submit"}>Submit</button>
       </form>
 
-      {pets.map(({ name, breed, animal, id }) => (
-        <Pet key={id} name={name} breed={breed} animal={animal} />
-      ))}
+      <Results pets={pets} />
     </div>
   );
 }
