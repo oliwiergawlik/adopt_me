@@ -1,4 +1,4 @@
-function Pet({ name, breed, animal, id, images, city, state }) {
+function Pet({ name, breed, animal, id, images, location }) {
   // return (
   //   <div>
   //     <h2>{name}</h2>
