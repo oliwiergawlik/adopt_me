@@ -22,13 +22,15 @@ class Details extends Component {
     this.setState(Object.assign({ loading: false }, data.pets[0]));
   }
 
-  toggleModal() {}
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal });
+  };
 
   render() {
     if (this.state.loading) {
       return <h2>Loading</h2>;
     }
-    const { name, animal, breed, city, description, state, images } =
+    const { name, animal, breed, city, description, state, images, showModal } =
       this.state;
 
     return (
@@ -51,6 +53,19 @@ class Details extends Component {
           </ThemeContext.Consumer>
 
           <p>{description}</p>
+          {showModal ? (
+            <Modal>
+              <div>
+                <h2>Would you like to adopt {name}?</h2>
+              </div>
+              <div className="buttons">
+                <a href="https://bit.ly/pet-adopt">
+                  <button>Yes</button>
+                </a>
+                <button onClick={this.toggleModal}>No</button>
+              </div>
+            </Modal>
+          ) : null}
         </div>
         <Carousel images={images} />
       </div>
