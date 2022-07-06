@@ -4,7 +4,7 @@ function Results({ pets }) {
   return (
     <>
       {!pets.length ? (
-        <h1>No pets found!</h1>
+        <h1>No pets found!!</h1>
       ) : (
         pets.map(({ name, breed, animal, id, images, city, state }) => (
           <Pet
