@@ -38,6 +38,32 @@ test('gives an empty list with no animals - new solution', async () => {
     expect(status).toBe('unloaded');
 })
 
+test('', async () => {
+    fetch.mockResponseOnce(
+        JSON.stringify({
+            animal: "dog",
+        })
+    )
+
+    const result = await act(() => renderHook(() => useBreedList('cat')).result)
+
+    const [breedList, status] = result.current;
+    expect(status).toBe('loaded');
+    expect(breedList).toEqual([]);
+})
+
+
+test('error gives empty list of animals', async () => {
+    fetch.mockReject(new Error('Something is no yes'));
+
+    const result = await act(() => renderHook(() => useBreedList('dog')).result)
+
+    const [breedList, status] = result.current;
+    expect(status).toBe('unloaded');
+    expect(breedList).toEqual([]);
+
+})
+
 // gives back breeds with an animal
 
 test('gives back breeds with an animal', async () => {
@@ -66,7 +92,9 @@ test('gives back breeds with an animal', async () => {
     // const [breedList, status] = result_.current;
 
     // Codewars example xd
-    let result = await act(() => renderHook(() => useBreedList('dog')).result)
+    await act(() => renderHook(() => useBreedList('dog')).result)
+    const result = await act(() => renderHook(() => useBreedList('dog')).result)
+
     const [breedList, status] = result.current;
 
     expect(status).toBe('loaded');

@@ -138,6 +138,6 @@ test('renders correctly with no pets', () => {
 
 test('renders correctly with some pets', () => {
     const r = createRenderer();
-    r.render(<Results pets={pets}/>)
+    r.render(<Results pets={pets}/>);
     expect(r.getRenderOutput()).toMatchSnapshot();
 })

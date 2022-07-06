@@ -30,3 +30,12 @@ Example of supported browsers: => [Link](https://browserslist.dev/?q=bGFzdCAyIHZ
   "browserslist": ["last 2 versions", "not dead"]
 }
 ```
+---
+Run coverage report
+```bash
+jest --coverage
+```
+Open coverage index.html
+```bash
+open coverage/lcov-report/index.html
+```
