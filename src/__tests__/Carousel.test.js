@@ -45,5 +45,4 @@ test('after clicking on thumbnail its making its have a "active" class', async (
 
         expect(thumbnail.classList).toContain('active')
     }
-
 })
