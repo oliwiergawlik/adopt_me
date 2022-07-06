@@ -8,7 +8,8 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html -p 1235",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:coverage":  "jest --coverage"
   },
   "repository": {
     "type": "git",
