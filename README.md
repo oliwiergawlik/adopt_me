@@ -34,6 +34,8 @@ Example of supported browsers: => [Link](https://browserslist.dev/?q=bGFzdCAyIHZ
 Run coverage report
 ```bash
 jest --coverage
+or
+npm t -- --coverage
 ```
 Open coverage index.html
 ```bash
