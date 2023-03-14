@@ -6,7 +6,7 @@
         "runtime": "automatic"
       }
     ],
-    "@parcel/babel-present-env"
+    "@babel/preset-env"
   ],
   "plugins": ["@babel/plugin-proposal-class-properties"],
   "env": {
