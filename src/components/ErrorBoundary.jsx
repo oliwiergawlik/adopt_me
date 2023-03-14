@@ -2,41 +2,41 @@ import { Component } from "react";
 import { Link, Navigate } from "react-router-dom";
 
 class ErrorBoundary extends Component {
-  state = {
-    hasError: false,
-    redirect: false,
-  };
-
-  static getDerivedStateFromError() {
-    return {
-      hasError: true,
+    state = {
+        hasError: false,
+        redirect: false,
     };
-  }
 
-  componentDidCatch(error, errorInfo) {
-    console.error("Error boundary caught an error", error, errorInfo);
-  }
-
-  componentDidUpdate() {
-    if (this.state.hasError) {
-      setTimeout(() => {
-        this.setState({ redirect: true });
-      }, 5000);
+    static getDerivedStateFromError() {
+        return {
+            hasError: true,
+        };
     }
-  }
 
-  render() {
-    if (this.state.redirect) {
-      return <Navigate to="/" />;
-    } else if (this.state.hasError) {
-      return (
-        <h2>
-          There was an error! <Link to="/">Click here.</Link>
-        </h2>
-      );
+    componentDidCatch(error, errorInfo) {
+        console.error("Error boundary caught an error", error, errorInfo);
     }
-    return this.props.children;
-  }
+
+    componentDidUpdate() {
+        if (this.state.hasError) {
+            setTimeout(() => {
+                this.setState({ redirect: true });
+            }, 5000);
+        }
+    }
+
+    render() {
+        if (this.state.redirect) {
+            return <Navigate to="/" />;
+        } else if (this.state.hasError) {
+            return (
+                <h2>
+                    There was an error! <Link to="/">Click here.</Link>
+                </h2>
+            );
+        }
+        return this.props.children;
+    }
 }
 
 export default ErrorBoundary;

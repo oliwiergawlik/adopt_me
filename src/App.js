@@ -7,24 +7,24 @@ import ThemeContext from "./components/ThemeContext";
 import { useState } from "react";
 
 function App() {
-  const theme = useState("green");
+    const theme = useState("green");
 
-  return (
-    <ThemeContext.Provider value={theme}>
-      <BrowserRouter>
-        <header>
-          <Link to="/">
-            <h1>Adopt Me!</h1>
-          </Link>
-        </header>
+    return (
+        <ThemeContext.Provider value={theme}>
+            <BrowserRouter>
+                <header>
+                    <Link to="/">
+                        <h1>Adopt Me!</h1>
+                    </Link>
+                </header>
 
-        <Routes>
-          <Route path="/" element={<SearchParams />} />
-          <Route path="/details/:id" element={<Details />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeContext.Provider>
-  );
+                <Routes>
+                    <Route path="/" element={<SearchParams />} />
+                    <Route path="/details/:id" element={<Details />} />
+                </Routes>
+            </BrowserRouter>
+        </ThemeContext.Provider>
+    );
 }
 
 export default App;
