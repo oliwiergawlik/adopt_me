@@ -13,11 +13,12 @@ function useBreedList(animal) {
             setBreedList(localCache[animal]);
             setStatus("loaded");
         } else {
-            requestBreedList().catch((error) => {
+            requestBreedList().catch(() => {
                 setBreedList([]);
                 setStatus("unloaded");
+            }).catch((error) => {
                 throw new Error(`Something went wrong with loading!` + error);
-            });
+            })
         }
     }, [animal]);
 
