@@ -19,9 +19,10 @@ class Carousel extends Component {
 
     return (
       <div className="carousel">
-        <img src={images[active]} alt="animal" data-testid='thumbnail'/>
+        <img src={images[active]} alt="animal" data-testid="thumbnail" />
         <div className="carousel-smaller">
           {images.map((image, idx) => (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
             <img
               src={image}
               alt="animal thumbnail"

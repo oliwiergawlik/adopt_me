@@ -1,40 +1,23 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Pet({name, breed, animal, id, images, location}) {
-    // return (
-    //   <div>
-    //     <h2>{name}</h2>
-    //     <h3>{animal}</h3>
-    //     <h3>{breed}</h3>
-    //   </div>
-    // );
+function Pet({ name, breed, animal, id, images, location }) {
+  let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
 
-    // return React.createElement("div", {}, [
-    //   React.createElement("h2", { key: 1 }, props.name),
-    //   React.createElement("h3", { key: 2 }, props.animal),
-    //   React.createElement("h3", { key: 3 }, props.breed),
-    // ]);
+  if (images && images.length) {
+    hero = images[0];
+  }
 
-    let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
-    // if (Array.isArray(images) && images.length) {
-    //     hero = images[0];
-    // }
-
-    if (images && images.length) {
-        hero = images[0];
-    }
-
-    return (
-        <Link to={`/details/${id}`} className={"pet"}>
-            <div className="image-container">
-                <img src={hero} alt={name} data-testid='thumbnail'/>
-            </div>
-            <div className="info">
-                <h1>{name}</h1>
-                <h2>{`${animal} — ${breed} — ${location}`}</h2>
-            </div>
-        </Link>
-    );
+  return (
+    <Link to={`/details/${id}`} className={"pet"}>
+      <div className="image-container">
+        <img src={hero} alt={name} data-testid="thumbnail" />
+      </div>
+      <div className="info">
+        <h1>{name}</h1>
+        <h2>{`${animal} — ${breed} — ${location}`}</h2>
+      </div>
+    </Link>
+  );
 }
 
 export default Pet;
